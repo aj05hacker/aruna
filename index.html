@@ -1,235 +1,821 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./portfolio/style.css">
-    <link rel="shortcut icon" href="./portfolio/images/favicon-portfolio.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>My Portfolio</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <script src="js/nav.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aruna S - Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#8B5CF6',
+secondary: '#F6E05E'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body { 
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+}
+.typing::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.glass-effect:hover {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #8B5CF6, #F6E05E);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+.progress-bar {
+  transition: width 1s ease-in-out;
+}
+.project-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(139, 92, 246, 0.1);
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.1);
+}
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(to right, #8B5CF6, #F6E05E);
+  z-index: 1000;
+}
+.section-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, #8B5CF6, #F6E05E);
+  border-radius: 3px;
+}
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1440px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+.skill-item {
+  background: rgba(139, 92, 246, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.skill-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(139, 92, 246, 0.1);
+  transition: width 1s ease-in-out;
+  z-index: 0;
+}
+.skill-content {
+  position: relative;
+  z-index: 1;
+}
+.skill-item:hover {
+  background: rgba(139, 92, 246, 0.1);
+}
+.contact-form input,
+.contact-form textarea {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #8B5CF6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+.hero-decoration {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40%;
+  height: 80%;
+  opacity: 0.7;
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: translateY(-50%) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-50%) scale(1.1);
+    opacity: 0.5;
+  }
+}
+.hero-shapes {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.hero-shape {
+  width: 120px;
+  height: 120px;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(246, 224, 94, 0.1));
+  animation: float 6s ease-in-out infinite;
+}
+.hero-shape:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation-delay: -2s;
+}
+.hero-shape:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  animation-delay: -4s;
+}
+.floating-icons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.floating-icon {
+  position: absolute;
+  opacity: 0.1;
+  transition: all 0.3s ease;
+}
+.floating-icon:hover {
+  opacity: 0.3;
+  transform: scale(1.2);
+}
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+  }
+}
+@keyframes float-down {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(-360deg);
+  }
+}
+@keyframes float-left {
+  0% {
+    transform: translateX(100vw) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-100px) rotate(360deg);
+  }
+}
+@keyframes float-right {
+  0% {
+    transform: translateX(-100px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(100vw) rotate(-360deg);
+  }
+}
+</style>
 </head>
-<body>
-    <!-- Navbar Start -->
-    <nav id="navbar" class="black navbar navbar-expand-lg fixed-top">
-        <!-- Brand -->
-        <a id="nav-logo" class="navbar-brand" href="index.html">Aruna</a>
+<body class="bg-white">
+<div class="floating-icons">
+  <i class="ri-java-line floating-icon" style="font-size: 2rem; top: 10%; left: 15%; animation: float-up 20s linear infinite;"></i>
+  <i class="ri-html5-line floating-icon" style="font-size: 2.5rem; top: 20%; left: 80%; animation: float-down 25s linear infinite;"></i>
+  <i class="ri-css3-line floating-icon" style="font-size: 2.2rem; top: 40%; left: 25%; animation: float-left 22s linear infinite;"></i>
+  <i class="ri-database-2-line floating-icon" style="font-size: 2.3rem; top: 60%; left: 70%; animation: float-right 18s linear infinite;"></i>
+  <i class="ri-pencil-ruler-line floating-icon" style="font-size: 2.4rem; top: 30%; left: 45%; animation: float-up 24s linear infinite;"></i>
+  <i class="ri-code-box-line floating-icon" style="font-size: 2.1rem; top: 50%; left: 85%; animation: float-down 21s linear infinite;"></i>
+  <i class="ri-git-branch-line floating-icon" style="font-size: 2.6rem; top: 70%; left: 30%; animation: float-left 23s linear infinite;"></i>
+  <i class="ri-bug-line floating-icon" style="font-size: 2.3rem; top: 80%; left: 60%; animation: float-right 19s linear infinite;"></i>
+  <i class="ri-terminal-line floating-icon" style="font-size: 2.2rem; top: 15%; left: 55%; animation: float-up 22s linear infinite;"></i>
+  <i class="ri-palette-line floating-icon" style="font-size: 2.5rem; top: 45%; left: 15%; animation: float-down 20s linear infinite;"></i>
+  <i class="ri-shield-check-line floating-icon" style="font-size: 2.4rem; top: 65%; left: 40%; animation: float-left 25s linear infinite;"></i>
+  <i class="ri-cloud-line floating-icon" style="font-size: 2.3rem; top: 25%; left: 75%; animation: float-right 21s linear infinite;"></i>
+</div>
+<div class="scroll-indicator" id="scrollIndicator"></div>
+<header class="fixed top-0 w-full z-50 glass-effect">
+<nav class="container mx-auto px-6 py-4">
+<div class="flex items-center justify-between">
+<div class="text-2xl text-primary font-['Pacifico']">Aruna</div>
+<div class="hidden md:flex space-x-8">
+<a href="#about" class="nav-link text-gray-700 hover:text-primary">About</a>
+<a href="#skills" class="nav-link text-gray-700 hover:text-primary">Skills</a>
+<a href="#projects" class="nav-link text-gray-700 hover:text-primary">Projects</a>
+<a href="#achievements" class="nav-link text-gray-700 hover:text-primary">Achievements</a>
+<a href="#contact" class="nav-link text-gray-700 hover:text-primary">Contact</a>
+</div>
+<button class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line text-xl"></i>
+</button>
+</div>
+</nav>
+</header>
+<section class="min-h-screen flex items-center relative overflow-hidden">
+<div class="absolute inset-0 -z-10">
+  <div class="absolute inset-0 bg-gradient-radial from-primary/20 to-transparent animate-pulse"></div>
+  <div class="absolute inset-0 bg-[url('https://readdy.ai/api/search-image?query=modern%20minimalist%20abstract%20background%20with%20soft%20gradient%20purple%20and%20gold%20tones%2C%20elegant%20and%20luxurious%20feeling%2C%20perfect%20for%20portfolio%20hero%20section%20background%2C%20ensuring%20text%20readability%20on%20the%20left%20side%20with%20subtle%20glow%20effects&width=1920&height=1080&seq=1&orientation=landscape')] bg-cover bg-center opacity-80"></div>
+  <div class="absolute inset-0 animate-float bg-[url('https://readdy.ai/api/search-image?query=elegant%20abstract%20floating%20geometric%20shapes%2C%20transparent%20with%20subtle%20purple%20and%20gold%20gradients%2C%20perfect%20for%20modern%20portfolio%20overlay&width=1920&height=1080&seq=5&orientation=landscape')] bg-cover bg-center opacity-20"></div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+<div class="hero-decoration"></div>
+<div class="hero-shapes">
+  <div class="hero-shape"></div>
+  <div class="hero-shape"></div>
+  <div class="hero-shape"></div>
+</div>
+<div class="container mx-auto px-6 relative z-10">
+  <div class="max-w-2xl ml-0 md:ml-8 lg:ml-16 text-white">
+    <h1 class="text-5xl md:text-7xl font-bold mb-4">Aruna S</h1>
+    <div class="text-xl md:text-2xl mb-8 typing" id="typingText">MERN Stack Developer</div>
+    <p class="text-lg text-white/80 mb-8">Passionate about creating elegant solutions to complex problems. Specializing in building responsive web applications with modern technologies.</p>
+    <div class="flex gap-4 mb-8">
+      <a href="https://github.com/arunasg" target="_blank" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+        <i class="ri-github-line text-xl"></i>
+      </a>
+      <a href="https://linkedin.com/in/arunas" target="_blank" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+        <i class="ri-linkedin-line text-xl"></i>
+      </a>
+      <a href="mailto:arunasg28@gmail.com" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+        <i class="ri-mail-line text-xl"></i>
+      </a>
+    </div>
+    <div class="flex gap-4">
+      <a href="#contact" class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-primary/90">Hire Me</a>
+      <a href="resume.pdf" download="resume.pdf" class="border-2 border-white text-white px-8 py-3 !rounded-button hover:bg-white/10">View Resume</a>
+    </div>
+  </div>
+</div>
+</section>
+<section id="about" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="text-4xl font-bold mb-8">About Me</h2>
+<p class="text-gray-600 leading-relaxed mb-6">
+I'm a passionate MERN Stack Developer with hands-on experience in building scalable web applications using React.js, Node.js, Express.js, and MongoDB. Proficient in developing responsive and dynamic user interfaces, optimizing performance, and implementing secure back-end APIs.
+</p>
+</div>
+</div>
+</section>
+<section id="skills" class="py-20">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-16 section-title">Skills & Expertise</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="p-6 rounded-lg bg-white shadow-lg">
+<h3 class="text-xl font-semibold mb-6">Programming Languages</h3>
+<div class="space-y-4">
+<div class="skill-item">
+  <div class="skill-progress" style="width: 90%"></div>
+  <div class="skill-content">
+    <div class="flex justify-between mb-2">
+      <span>JavaScript</span>
+      <span>90%</span>
+    </div>
+    <div class="h-2 bg-gray-200 rounded-full">
+      <div class="h-full w-[90%] bg-primary rounded-full progress-bar"></div>
+    </div>
+  </div>
+</div>
+<div class="skill-item">
+  <div class="skill-progress" style="width: 85%"></div>
+  <div class="skill-content">
+    <div class="flex justify-between mb-2">
+      <span>Python</span>
+      <span>85%</span>
+    </div>
+    <div class="h-2 bg-gray-200 rounded-full">
+      <div class="h-full w-[85%] bg-primary rounded-full progress-bar"></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="p-6 rounded-lg bg-white shadow-lg">
+<h3 class="text-xl font-semibold mb-6">Frontend Development</h3>
+<div class="space-y-4">
+<div class="skill-item">
+  <div class="skill-progress" style="width: 95%"></div>
+  <div class="skill-content">
+    <div class="flex justify-between mb-2">
+      <span>HTML & CSS</span>
+      <span>95%</span>
+    </div>
+    <div class="h-2 bg-gray-200 rounded-full">
+      <div class="h-full w-[95%] bg-primary rounded-full progress-bar"></div>
+    </div>
+  </div>
+</div>
+<div class="skill-item">
+  <div class="skill-progress" style="width: 90%"></div>
+  <div class="skill-content">
+    <div class="flex justify-between mb-2">
+      <span>React.js</span>
+      <span>90%</span>
+    </div>
+    <div class="h-2 bg-gray-200 rounded-full">
+      <div class="h-full w-[90%] bg-primary rounded-full progress-bar"></div>
+    </div>
+  </div>
+</div>
+<div class="skill-item">
+  <div class="skill-progress" style="width: 85%"></div>
+  <div class="skill-content">
+    <div class="flex justify-between mb-2">
+      <span>Redux</span>
+      <span>85%</span>
+    </div>
+    <div class="h-2 bg-gray-200 rounded-full">
+      <div class="h-full w-[85%] bg-primary rounded-full progress-bar"></div>
+    </div>
+  </div>
+</div>
+<div class="skill-item">
+  <div class="skill-progress" style="width: 90%"></div>
+  <div class="skill-content">
+    <div class="flex justify-between mb-2">
+      <span>Tailwind CSS</span>
+      <span>90%</span>
+    </div>
+    <div class="h-2 bg-gray-200 rounded-full">
+      <div class="h-full w-[90%] bg-primary rounded-full progress-bar"></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="p-6 rounded-lg bg-white shadow-lg">
+<h3 class="text-xl font-semibold mb-6">Backend & Database</h3>
+<div class="space-y-4">
+<div class="skill-item">
+  <div class="skill-progress" style="width: 90%"></div>
+  <div class="skill-content">
+    <div class="flex justify-between mb-2">
+      <span>Node.js</span>
+      <span>90%</span>
+    </div>
+    <div class="h-2 bg-gray-200 rounded-full">
+      <div class="h-full w-[90%] bg-primary rounded-full progress-bar"></div>
+    </div>
+  </div>
+</div>
+<div class="skill-item">
+  <div class="skill-progress" style="width: 85%"></div>
+  <div class="skill-content">
+    <div class="flex justify-between mb-2">
+      <span>Express.js</span>
+      <span>85%</span>
+    </div>
+    <div class="h-2 bg-gray-200 rounded-full">
+      <div class="h-full w-[85%] bg-primary rounded-full progress-bar"></div>
+    </div>
+  </div>
+</div>
+<div class="skill-item">
+  <div class="skill-progress" style="width: 85%"></div>
+  <div class="skill-content">
+    <div class="flex justify-between mb-2">
+      <span>MongoDB</span>
+      <span>85%</span>
+    </div>
+    <div class="h-2 bg-gray-200 rounded-full">
+      <div class="h-full w-[85%] bg-primary rounded-full progress-bar"></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="p-6 rounded-lg bg-white shadow-lg">
+<h3 class="text-xl font-semibold mb-6">Tools & Technologies</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<i class="ri-git-branch-line text-primary"></i>
+</div>
+<span>Git & GitHub</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<i class="ri-code-box-line text-primary"></i>
+</div>
+<span>VS Code</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<i class="ri-bug-line text-primary"></i>
+</div>
+<span>Postman</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="projects" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-16 section-title">Featured Projects</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+<div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=modern%20alumni%20platform%20interface%20with%20networking%20features%2C%20professional%20UI%20design%20visualization&width=400&height=300&seq=2&orientation=landscape'); background-size: cover;"></div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">Alumni Association Platform</h3>
+<p class="text-gray-600 mb-4">Built a comprehensive platform using React.js, Node.js, and MongoDB to enhance alumni-institution engagement. Developed user authentication and real-time messaging, improving alumni connectivity by 40%.</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">React.js</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Node.js</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">MongoDB</span>
+</div>
+</div>
+</div>
+<div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+<div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=email%20management%20system%20interface%20with%20CSV%20processing%2C%20professional%20UI%20design%20visualization&width=400&height=300&seq=3&orientation=landscape'); background-size: cover;"></div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">Mass Mail Dispatcher</h3>
+<p class="text-gray-600 mb-4">Created a web-based tool to validate and dispatch mass emails from CSV files. Reduced email bounce rate by 30% using advanced validation algorithms.</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Web Application</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">CSV Processing</span>
+</div>
+</div>
+</div>
+<div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+<div class="h-48 bg-gray-200" style="background-image: url('https://readdy.ai/api/search-image?query=modern%20portfolio%20website%20interface%20with%20responsive%20design%2C%20professional%20UI%20design%20visualization&width=400&height=300&seq=4&orientation=landscape'); background-size: cover;"></div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">Personal Portfolio</h3>
+<p class="text-gray-600 mb-4">Designed and deployed a responsive portfolio showcasing skills and projects using React.js and Tailwind CSS.</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">React.js</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Tailwind CSS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="achievements" class="py-20">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-16 section-title">Certifications & Achievements</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-white p-6 rounded-lg shadow-lg">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<i class="ri-medal-line text-primary text-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold mb-2">Figma Design Course</h3>
+<p class="text-gray-600">Udemy Certification</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-lg">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<i class="ri-trophy-line text-primary text-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold mb-2">I Place - UI Design Workshop</h3>
+<p class="text-gray-600">National Level Competition</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-lg">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<i class="ri-award-line text-primary text-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold mb-2">II Place - Web Hunting</h3>
+<p class="text-gray-600">Inter-College Technical Symposium</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-lg">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<i class="ri-star-line text-primary text-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold mb-2">Best Co-Curricular Student Award</h3>
+<p class="text-gray-600">Academic Excellence Recognition</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-lg">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<i class="ri-certificate-line text-primary text-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold mb-2">Python</h3>
+<p class="text-gray-600">GUVI GEEK NETWORKS</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-lg">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<i class="ri-certificate-line text-primary text-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold mb-2">Frontend Web Development</h3>
+<p class="text-gray-600">UDEMY</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-lg">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<i class="ri-certificate-line text-primary text-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold mb-2">Programming in Java</h3>
+<p class="text-gray-600">NPTEL</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="experience" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-16 section-title">Work Experience</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-6 rounded-lg shadow-lg">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<i class="ri-briefcase-line text-primary text-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold mb-2">Frontend Developer Intern</h3>
+<p class="text-gray-600">Skill Upgrade</p>
+<p class="text-sm text-gray-500">June 2024</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-lg">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<i class="ri-briefcase-line text-primary text-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold mb-2">Web Developer Intern</h3>
+<p class="text-gray-600">Exposys Data Labs</p>
+<p class="text-sm text-gray-500">July 2023</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-lg">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<i class="ri-briefcase-line text-primary text-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold mb-2">Web Development & Designing Intern</h3>
+<p class="text-gray-600">Oasis Infobyte</p>
+<p class="text-sm text-gray-500">July 2023</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="contact" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-16 section-title">Get in Touch</h2>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div class="space-y-8">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<i class="ri-mail-line text-primary"></i>
+</div>
+<div>
+<h3 class="font-semibold">Email</h3>
+<a href="mailto:arunasg28@gmail.com" class="text-gray-600 hover:text-primary">arunasg28@gmail.com</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<i class="ri-phone-line text-primary"></i>
+</div>
+<div>
+<h3 class="font-semibold">Phone</h3>
+<a href="tel:+916381267292" class="text-gray-600 hover:text-primary">+91 6381267292</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<i class="ri-translate-2-line text-primary"></i>
+</div>
+<div>
+<h3 class="font-semibold">Languages</h3>
+<p class="text-gray-600">English, Tamil</p>
+</div>
+</div>
+<div class="flex gap-4">
+<a href="https://github.com/arunasg" target="_blank" class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20">
+<i class="ri-github-line text-primary"></i>
+</a>
+<a href="https://linkedin.com/in/arunas" target="_blank" class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20">
+<i class="ri-linkedin-line text-primary"></i>
+</a>
+</div>
+</div>
+<form class="space-y-6 contact-form" action="https://formsubmit.co/arunasg28@gmail.com" method="POST">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+  <div>
+    <input type="text" name="name" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg border-none bg-white shadow-sm" required>
+  </div>
+  <div>
+    <input type="email" name="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg border-none bg-white shadow-sm" required>
+  </div>
+  <div>
+    <textarea name="message" placeholder="Your Message" rows="4" class="w-full px-4 py-3 rounded-lg border-none bg-white shadow-sm" required></textarea>
+  </div>
+  <button type="submit" class="w-full bg-primary text-white px-6 py-3 !rounded-button hover:bg-primary/90">Send Message</button>
+</form>
+</div>
+</div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const scrollIndicator = document.getElementById('scrollIndicator');
+window.addEventListener('scroll', function() {
+const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+const scrolled = (winScroll / height) * 100;
+scrollIndicator.style.width = scrolled + '%';
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+const text = "MERN Stack Developer";
+const typingElement = document.getElementById('typingText');
+let i = 0;
+function typeWriter() {
+if (i < text.length) {
+typingElement.textContent = text.substring(0, i + 1);
+i++;
+setTimeout(typeWriter, 100);
+}
+}
+typeWriter();
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const progressBar = entry.target;
+        const width = progressBar.getAttribute('data-width');
+        progressBar.style.width = width;
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
 
-        <!-- Button collapsable -->
-        <button class="navbar-toggler" id="nav-btn" type="button" data-toggle="collapse"
-            data-target="#collapsibleNavbar">
-            <span class="navbar-btn"><i class="fa fa-bars" aria-hidden="true"></i></span>
-        </button>
-        <!-- Links -->
-        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-            <ul id="nav-ul" class="navbar-nav">
-                <li class="nav-item navigation-list">
-                    <a class="nav-link nav-custom-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item navigation-list">
-                    <a class="nav-link nav-custom-link" href="#about-me">About</a>
-                </li>
-                <li class="nav-item navigation-list">
-                    <a class="nav-link nav-custom-link" href="#my-portfolio">Portfolio</a>
-                </li>
-                <li class="nav-item navigation-list">
-                    <a class="nav-link nav-custom-link" href="#section-contact">Contact</a>
-                </li>
-            </ul>
+  document.querySelectorAll('.progress-bar').forEach(bar => {
+    bar.style.width = '0';
+    const width = bar.parentElement.parentElement.querySelector('.skill-progress').style.width;
+    bar.setAttribute('data-width', width);
+    observer.observe(bar);
+  });
+});
+</script>
+<style>
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+.animate-float {
+  animation: float 15s ease-in-out infinite;
+}
+</style>
+<footer class="bg-gray-900 text-white py-12">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+      <div>
+        <h3 class="text-2xl font-['Pacifico'] mb-4">Aruna</h3>
+        <p class="text-gray-300">Creating digital experiences that inspire and engage.</p>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4 text-gray-100">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a></li>
+          <li><a href="#skills" class="text-gray-300 hover:text-white transition-colors">Skills</a></li>
+          <li><a href="#projects" class="text-gray-300 hover:text-white transition-colors">Projects</a></li>
+          <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4 text-gray-100">Connect</h4>
+        <div class="flex gap-4">
+          <a href="https://github.com/arunasg" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition-colors">
+            <i class="ri-github-line"></i>
+          </a>
+          <a href="https://linkedin.com/in/arunas" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition-colors">
+            <i class="ri-linkedin-line"></i>
+          </a>
         </div>
-    </nav>
-    <!-- Navbar End -->
-
-    <main class="container-fluid main p-0">
-        <!-- SECTION NO 1 -->
-        <section class="container-fluid section-1">
-            <div class="row section-1-inner">
-                <div class="col section-1-inner-col">
-                    <div class="image-frame mx-auto my-5">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- SECTION NO 2 -->
-        <section id="about-me" class="container-fluid section-2">
-            <div class="row">
-                <div class="col text-center">
-                    <div class="primary-heading">
-                        Creative <span class="fw-bold primary-heading-bold">Work</span>
-                    </div>
-                    <div class="paragraph mx-auto mt-2">
-                        “Great web design without functionality is like a sports car with no engine.”
-                    </div>
-                    <a type="button" class="section-2-button fw-bold">Read More</a>
-                </div>
-            </div>
-        </section>
-        <!-- SECTION NO 3 -->
-        <section class="container-fluid section-3">
-            <div class="row section-3-inner">
-                <div class="col-lg-6 section-3-inner-col-left text-center">
-                    <div class="primary-heading section-3-heading text-lg-center">
-                        I Am <span class="fw-bold">Developer</span>
-                    </div>
-                    <div class="section-3-image-left text-lg-end">
-                        <img src="./portfolio/images/Section-3-image-2.jpg" class="img-fluid sec3-images sec3-img-left" alt="">
-                    </div>
-                  </div>
-            
-                    <div class="section-3-button-right text-lg-start">
-                        <button class="sec3-btn-right text-uppercase fw-bold" onclick="location.href='#'">
-                            Read More
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="background-section-3"></div>
-        </section>
-        <!-- SECTION CONTACT -->
-        <section id="section-contact" class="container-fluid">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="contact-heading">
-                        Contact Me
-                    </div>
-                    <div class="contact-para">
-                        Let's start a conversation
-                    </div>
-                </div>
-            </div>
-            <div class="row card-row-1">
-                <div class="col-lg-3 col-md-6">
-                    <div class="card text-center custom-card">
-                        <!-- <div class="card-header"></div> -->
-                        <div class="card-body">
-                            <div class="card-circle">
-                                <div class="card-circle-icon"><i class="fa fa-map-signs" aria-hidden="true"></i></div>
-                            </div>
-                            <div class="card-heading">Address</div>
-                            <div class="card-para">Street No ...</div>
-                        </div>
-                        <!-- <div class="card-footer"></div> -->
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card text-center custom-card mt-5 mt-md-0">
-                        <!-- <div class="card-header"></div> -->
-                        <div class="card-body">
-                            <div class="card-circle">
-                                <div class="card-circle-icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
-                            </div>
-                            <div class="card-heading">Contact Number</div>
-                            <div class="card-para"><a class="card-link" href="https://wa.me/+92xxxxxxxxxx">+92xxx
-                                    xxxxxxx</div></a>
-                        </div>
-                        <!-- <div class="card-footer"></div> -->
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card text-center custom-card mt-5 mt-lg-0">
-                        <!-- <div class="card-header"></div> -->
-                        <div class="card-body">
-                            <div class="card-circle">
-                                <div class="card-circle-icon"><i class="fa fa-paper-plane" aria-hidden="true"></i></div>
-                            </div>
-                            <div class="card-heading">Email Address</div>
-                            <div class="card-para"><a class="card-link"
-                                    href="mailto:email@example.com">email@example.com</div></a>
-                        </div>
-                        <!-- <div class="card-footer"></div> -->
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card text-center custom-card mt-5 mt-lg-0">
-                        <!-- <div class="card-header"></div> -->
-                        <div class="card-body">
-                            <div class="card-circle">
-                                <div class="card-circle-icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
-                            </div>
-                            <div class="card-heading">Website</div>
-                            <div class="card-para"><a class="card-link" href="#">yoursite.com</a></div>
-                        </div>
-                        <!-- <div class="card-footer"></div> -->
-                    </div>
-                </div>
-            </div>
-            <div class="row card-row-2">
-                <div class="col-lg-6 contact-image">
-                </div>
-                <div class="col-lg-6 contact-form-div">
-                    <form action="#" class="contact-form">
-                        <div class="form-group mt-3 mt-sm-4">
-                            <input type="text" id="custom-input1" class="form-control" placeholder="Your Name">
-                        </div>
-                        <div class="form-group mt-3 mt-sm-4">
-                            <input type="text" id="custom-input2" class="form-control" placeholder="Your Email">
-                        </div>
-                        <div class="form-group mt-3 mt-sm-4">
-                            <input type="text" id="custom-input3" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="form-group mt-3 mt-sm-4">
-                            <textarea name="" id="custom-textarea" cols="30" rows="7" class="form-control"
-                                placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-group mt-3 mt-sm-4 form-button">
-                            <input type="submit" value="Send Message" id="contact-custom-button" class="btn">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-        <!-- SECTION NO 7 -->
-        <section class="container-fluid section-7">
-            <div class="row section-7-inner mx-auto text-center">
-                <div class="col">
-                    <div class="section-7-text">
-                        We want to stay in touch with you! Please follow us on social media so we can keep in touch.
-                    </div>
-                    <div class="section-7-icons">
-                        <a href="#" class="social-icons"><i class="bi bi-facebook icons"></i></a>
-                        <a href="#" class="social-icons"><i class="bi bi-twitter icons"></i></a>
-                        <a href="#" class="social-icons"><i class="bi bi-instagram icons"></i></a>
-                        <a href="#" class="social-icons"><i class="bi bi-linkedin icons"></i></a>
-                        <a href="#" class="social-icons"><i class="bi bi-pinterest icons"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-            <!-- Divider -->
-            <hr style="border-bottom: 1px solid black;">
-
-            <div class="row section-footer-inner">
-                <div class="col">
-                    <div class="footer-copyright text-center mt-2">
-                        copyright@2024
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </main>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-8 text-center text-gray-300">
+      <p>&copy; 2024 Aruna S. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 </body>
-
 </html>
